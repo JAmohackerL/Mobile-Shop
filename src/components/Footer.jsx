@@ -3,7 +3,7 @@ import { FaTelegram, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-white py-8 border-t">
+    <footer className="bg-container py-8 border-t">
       <div className="container mx-auto px-4">
         {/* لوگو و اطلاعات تماس */}
         <div className="flex justify-between items-center mb-8">
