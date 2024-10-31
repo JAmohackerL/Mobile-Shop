@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
 
         {/* منوهای فوتر */}
-        <div className="grid grid-cols-4 gap-8">
+        <div className=" flex flex-col md:felx-row gap-8">
           {/* با فون پال */}
           <div>
             <h3 className="text-sm font-bold mb-4">با فون پال</h3>

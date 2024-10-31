@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         <html lang="fa" dir="rtl" className={myFont.className}>
             <body>
                 <Navbar />
-                <main className="pt-16 ">{children}</main>
+                <main >{children}</main>
                 <Footer />
             </body>
         </html>

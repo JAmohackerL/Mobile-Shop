@@ -12,7 +12,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-secondary">
+    <nav className=" w-full bg-secondary">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* لوگو */}
