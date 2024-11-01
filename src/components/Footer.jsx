@@ -6,16 +6,16 @@ export default function Footer() {
     <footer className="bg-container py-8 border-t">
       <div className="container mx-auto px-4">
         {/* لوگو و اطلاعات تماس */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
           <img src="/images/logo.png" alt="Phone Pal" className="h-8" />
-          <div className="text-left text-sm text-gray-600 space-y-1">
+          <div className="text-center sm:text-left text-sm text-gray-600 space-y-1">
             <p>تلفن: ۰۲۱۲۲۶۵۶۵۲ - ۰۲۱۲۲۷۵۰۰۰۰</p>
             <p>پاسخگویی ۲۴ ساعته</p>
           </div>
         </div>
 
         {/* منوهای فوتر */}
-        <div className=" flex flex-col md:felx-row gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* با فون پال */}
           <div>
             <h3 className="text-sm font-bold mb-4">با فون پال</h3>

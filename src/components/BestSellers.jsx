@@ -1,0 +1,114 @@
+"use client";
+import { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
+import SamsungS23 from "@/assets/images/s23.webp";
+import Iphone13 from "@/assets/images/13.webp";
+import S24 from "@/assets/images/s24.webp";
+import A55 from "@/assets/images/a55.webp";
+import Image from "next/image";
+
+const bestSellers = [
+  {
+    id: 1,
+    name: "گوشی موبایل اپل مدل iPhone 13",
+    image: Iphone13,
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    name: "گوشی موبایل سامسونگ مدل Galaxy S23",
+    image: SamsungS23,
+    rating: 4.2,
+  },
+  {
+    id: 3,
+    name: "گوشی موبایل سامسونگ مدل Galaxy S24",
+    image: S24,
+    rating: 4.8,
+  },
+  {
+    id: 4,
+    name: "گوشی موبایل سامسونگ مدل Galaxy A55",
+    image: A55,
+    rating: 4.3,
+  },
+];
+
+export default function BestSellers() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const RatingStars = ({ rating }) => {
+    return (
+      <div className="flex gap-1 justify-end mt-2">
+        {[...Array(5)].map((_, index) => (
+          <FaStar
+            key={index}
+            className={`${
+              index < Math.floor(rating)
+                ? "text-yellow-400"
+                : index < rating
+                ? "text-yellow-400 opacity-50"
+                : "text-gray-300"
+            }`}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  const Popup = () => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-lg p-6 max-w-sm w-full relative">
+        <button
+          onClick={() => setShowPopup(false)}
+          className="absolute top-2 left-2 text-gray-500 hover:text-gray-700"
+        >
+          <IoMdClose size={24} />
+        </button>
+        <h3 className="text-xl font-bold text-center mb-4">استعلام قیمت</h3>
+        <p className="text-center text-gray-700 mb-4">
+          برای استعلام قیمت با شماره زیر تماس بگیرید:
+        </p>
+        <p className="text-center text-primary text-xl font-bold" dir="ltr">
+          021-8280003
+        </p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="w-full">
+      <h2 className="text-xl font-bold mb-6 text-center">پرفروش ترین ها</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {bestSellers.map((phone) => (
+          <div
+            key={phone.id}
+            className="bg-container rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+          >
+            <div className="cursor-pointer" onClick={() => setShowPopup(true)}>
+              <div className="relative w-full h-96 mb-4">
+                <Image
+                  src={phone.image}
+                  alt={phone.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="object-contain"
+                  priority={phone.id <= 2}
+                />
+              </div>
+              <h3 className="text-sm font-medium text-right mb-2 line-clamp-2">
+                {phone.name}
+              </h3>
+              <RatingStars rating={phone.rating} />
+              <p className="text-center text-primary font-bold mt-2">
+                برای مشاهده قیمت کلیک کنید
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {showPopup && <Popup />}
+    </div>
+  );
+}

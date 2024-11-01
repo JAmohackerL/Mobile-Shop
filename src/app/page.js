@@ -1,4 +1,3 @@
-
 import { MdSecurity, MdSupportAgent } from "react-icons/md";
 import { TbTruckReturn } from "react-icons/tb";
 import { LiaShippingFastSolid } from "react-icons/lia";
@@ -6,7 +5,9 @@ import ServiceIcon from "@/components/ServiceIcon";
 import InstallmentPurchase from "@/components/InstallmentPurchase";
 import PhoneCategory from "@/components/PhoneCategory";
 import LaptopCategory from "@/components/LaptopCategory";
-import Laptop360View from "@/components/Laptop360View";
+import Laptop360View from "@/components/Laptop360View.jsx";
+import ConsultationForm from "@/components/ConsultationForm.jsx";
+import BestSellers from "@/components/BestSellers.jsx";
 
 const services = [
   {
@@ -43,6 +44,10 @@ export default function Home() {
         </div>
 
         <div className="mt-24 max-w-6xl mx-auto">
+          <BestSellers />
+        </div>
+
+        <div className="mt-24 max-w-6xl mx-auto">
           <PhoneCategory />
         </div>
 
@@ -50,8 +55,11 @@ export default function Home() {
           <LaptopCategory />
         </div>
 
-        <div className="mt-24 max-w-6xl mx-auto">
+        <div className=" max-w-6xl mx-auto">
           <Laptop360View />
+        </div>
+        <div className="mt-24 max-w-2xl mx-auto">
+          <ConsultationForm />
         </div>
       </div>
     </main>
