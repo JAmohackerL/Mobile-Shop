@@ -55,9 +55,9 @@ export default function Home() {
           <LaptopCategory />
         </div>
 
-        <div className=" max-w-6xl mx-auto">
+        {/* <div className=" max-w-6xl mx-auto">
           <Laptop360View />
-        </div>
+        </div> */}
         <div className="mt-24 max-w-2xl mx-auto">
           <ConsultationForm />
         </div>
