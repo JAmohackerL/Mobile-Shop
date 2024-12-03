@@ -1,7 +1,8 @@
 {
-  "name": "shop-mobile",
+  "name": "Mobile-Shop",
   "version": "0.1.0",
   "private": true,
+  "author": "Ramin Joshang",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
