@@ -1,0 +1,8 @@
+{
+    "builds": [
+        {
+            "src": "npx npm install --legacy-peer-deps",
+            "use": "@vercel/npx"
+        }
+    ]
+}
