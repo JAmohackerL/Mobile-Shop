@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import laptopFrame from "@/assets/images/laptopFrame.png";
 
 const Laptop360View = () => {
@@ -8,15 +8,14 @@ const Laptop360View = () => {
   const [sliderValue, setSliderValue] = useState(0);
 
   const totalFrames = 36;
-  const frameHeight = 480;
-
   const [dimensions, setDimensions] = useState({
     width: 1130,
     height: 480,
     bgSize: "1280px 17454px",
   });
 
-  const calculateDimensions = () => {
+  // محاسبه ابعاد دقیق با استفاده از useCallback
+  const calculateDimensions = useCallback(() => {
     const viewportWidth = window.innerWidth;
     let newWidth = 1130;
     let newHeight = 480;
@@ -36,14 +35,15 @@ const Laptop360View = () => {
       height: newHeight,
       bgSize: `${newWidth}px ${(newWidth * 17454) / 1130}px`,
     });
-  };
+  }, []);
 
   useEffect(() => {
     calculateDimensions();
     window.addEventListener("resize", calculateDimensions);
     return () => window.removeEventListener("resize", calculateDimensions);
-  }, []);
+  }, [calculateDimensions]);
 
+  // تغییرات اسلایدر
   const handleSliderChange = (e) => {
     const value = parseInt(e.target.value);
     setSliderValue(value);

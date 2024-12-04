@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -10,6 +10,10 @@ export default function Navbar() {
     { title: "درباره ما", path: "/about" },
     { title: "تماس با ما", path: "/contact" },
   ];
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen(prevState => !prevState);
+  }, []);
 
   return (
     <nav className="w-full bg-gradient-to-r from-green-500 to-green-700 shadow-md">
@@ -24,7 +28,7 @@ export default function Navbar() {
               <Link
                 key={item.path}
                 href={item.path}
-                className="text-white font-medium transition-all duration-300 hover:text-green-200"
+                className="text-white font-medium transition-all duration-300 hover:text-green-200 focus:outline-none"
               >
                 {item.title}
               </Link>
@@ -34,7 +38,8 @@ export default function Navbar() {
           {/* دکمه همبرگر */}
           <button
             className="md:hidden text-white focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
           >
             <svg
               className="w-6 h-6"
@@ -69,7 +74,7 @@ export default function Navbar() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className="block px-3 py-2 rounded-md text-white font-medium transition-all duration-300 hover:bg-green-700 hover:rounded-lg"
+                  className="block px-3 py-2 rounded-md text-white font-medium transition-all duration-300 hover:bg-green-700 hover:rounded-lg focus:outline-none"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}

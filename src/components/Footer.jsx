@@ -4,16 +4,16 @@ import { FaTelegram, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-green-50 py-8 border-t border-green-200">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-full">
         {/* لوگو و اطلاعات تماس */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
           <img src="/favicon.ico" alt="Phone Pal" className="h-10" />
           <div className="text-center sm:text-left text-sm text-black space-y-1">
-            <p>تلفن:  ۰۲۱۲۲۷۵۰۰۰۰</p>
-            <p> ۰۲۱۲۲۶۵۶۵۲ </p>
-            <p>آدرس: تهران، خ ولیعصر، بالاتر از میدان ونک،</p>
-          <div className="text-center sm:text-left text-sm text-green-700 space-y-1">
-            <p>پاسخگویی ۲۴ ساعته</p>
+            <p>تلفن: ۰۲۱۲۲۷۵۰۰۰۰</p>
+            <p>۰۲۱۲۲۶۵۶۵۲</p>
+            <p>آدرس: تهران، خ ولیعصر، بالاتر از میدان ونک</p>
+            <div className="text-center sm:text-left text-sm text-green-700 space-y-1">
+              <p>پاسخگویی ۲۴ ساعته</p>
             </div>
           </div>
         </div>
@@ -100,18 +100,18 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold mb-4 text-black">با ما همراه باشید!</h3>
             <div className="flex gap-4 mb-4">
-              <a href="#" aria-label="Telegram" className="hover:text-green-900 transition-colors">
-                <FaTelegram className="text-green-700" size={20} />
-              </a>
-              <a href="#" aria-label="Instagram" className="hover:text-green-900 transition-colors">
+              <Link href="https://telegram.org" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <FaTelegram className="text-blue-700" size={20} />
+              </Link>
+              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram className="text-red-400" size={20} />
-              </a>
-              <a href="#" aria-label="Twitter" className="hover:text-green-900 transition-colors">
+              </Link>
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <FaTwitter className="text-blue-400" size={20} />
-              </a>
-              <a href="#" aria-label="YouTube" className="hover:text-green-900 transition-colors">
+              </Link>
+              <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                 <FaYoutube className="text-red-500" size={20} />
-              </a>
+              </Link>
             </div>
             <div className="relative">
               <input

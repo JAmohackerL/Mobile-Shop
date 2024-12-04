@@ -28,13 +28,15 @@ export default function LaptopCategory() {
         {brands.map((brand, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center p-4 bg-gradient-to-r from-blue-400 to-green-400 rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 cursor-pointer"
+            className="flex flex-col items-center justify-center p-4 bg-gradient-to-r from-blue-400 to-green-400 rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 cursor-pointer hover:bg-opacity-80 focus:outline-none"
           >
             <div className="relative w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-16">
               <Image
                 src={brand.image}
                 alt={brand.name}
-                fill
+                layout="intrinsic"
+                width={160} // optional width
+                height={96} // optional height
                 className="object-contain"
               />
             </div>

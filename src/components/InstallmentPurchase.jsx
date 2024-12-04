@@ -44,7 +44,7 @@ export default function InstallmentPurchase() {
             >
               <Image
                 src={phones[currentPhone]}
-                alt={`Product ${currentPhone + 1}`}
+                alt="نمایش موبایل و لپ‌تاپ"
                 className="w-full h-full object-contain drop-shadow-2xl"
                 priority
               />
@@ -66,8 +66,7 @@ export default function InstallmentPurchase() {
 
         {/* آیکون‌ها و توضیحات */}
         <div className="space-y-4 md:space-y-6">
-          {[
-            {
+          {[{
               icon: <MdEdit />,
               title: "ثبت نام آسان",
               description: "ثبت نام ساده و آسان به صورت آنلاین یا حضوری به انتخاب شما",
@@ -86,7 +85,7 @@ export default function InstallmentPurchase() {
               icon: <BiWallet />,
               title: "بازپرداخت راحت و آسان",
               description: "یک ماه پس از تخصیص اعتبار",
-            },
+            }
           ].map(({ icon, title, description }, idx) => (
             <div
               key={idx}
@@ -107,12 +106,11 @@ export default function InstallmentPurchase() {
 
         {/* دکمه‌ها */}
         <div className="flex justify-center md:justify-start gap-4">
-          <a
-            href="#"
+          <button
             className="px-6 py-3 text-sm md:text-base bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:from-blue-600 hover:to-green-700 transition-transform transform hover:scale-105"
           >
             محاسبه اقساط
-          </a>
+          </button>
         </div>
       </div>
     </div>
