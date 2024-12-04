@@ -6,14 +6,13 @@ export default function ConsultationForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    productType: "phone", // یا laptop
+    productType: "phone",
     budget: "",
     message: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // اینجا می‌توانید اطلاعات فرم را به سرور ارسال کنید
     console.log(formData);
   };
 
@@ -25,42 +24,42 @@ export default function ConsultationForm() {
   };
 
   return (
-    <div className="bg-container p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">
+    <div className="bg-gray-100 p-6 rounded-lg shadow-lg max-w-md mx-auto">
+      <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
         فرم مشاوره خرید اقساطی با کالا کارت
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block mb-2">نام و نام خانوادگی:</label>
+          <label className="block mb-2 text-gray-700">نام و نام خانوادگی:</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2">شماره تماس:</label>
+          <label className="block mb-2 text-gray-700">شماره تماس:</label>
           <input
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2">نوع محصول:</label>
+          <label className="block mb-2 text-gray-700">نوع محصول:</label>
           <select
             name="productType"
             value={formData.productType}
             onChange={handleChange}
-            className="w-full p-2 border rounded-md bg-white"
+            className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-400"
           >
             <option value="phone">گوشی موبایل</option>
             <option value="laptop">لپ تاپ</option>
@@ -68,30 +67,32 @@ export default function ConsultationForm() {
         </div>
 
         <div>
-          <label className="block mb-2">بودجه مورد نظر (تومان):</label>
+          <label className="block mb-2 text-gray-700">
+            بودجه مورد نظر (تومان):
+          </label>
           <input
             type="number"
             name="budget"
             value={formData.budget}
             onChange={handleChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2">توضیحات:</label>
+          <label className="block mb-2 text-gray-700">توضیحات:</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-2 border rounded-md h-32"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 h-32"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/80 transition-colors"
+          className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-500 transition-colors"
         >
           ارسال درخواست مشاوره
         </button>

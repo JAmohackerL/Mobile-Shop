@@ -27,109 +27,89 @@ export default function InstallmentPurchase() {
   }, []);
 
   return (
-    <div className="mt-8 md:mt-12 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto">
+    <div className="mt-8 md:mt-12 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto space-y-8 md:space-y-0">
+      {/* بخش تصویر */}
       <div className="w-full md:w-1/2 mt-8 md:mt-0">
         <div className="relative w-full aspect-square max-w-[280px] sm:max-w-md mx-auto">
-          <div className="absolute inset-[5%] rounded-full bg-green-400/30 backdrop-blur-sm"></div>
+          <div className="absolute inset-[5%] rounded-full bg-gradient-to-r from-green-400 to-blue-500 shadow-xl blur-md"></div>
 
           <AnimatePresence mode="popLayout">
             <motion.div
               key={currentPhone}
-              initial={{ y: -20, opacity: 0 }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                filter: [
-                  "drop-shadow(0 35px 35px rgb(0 0 0 / 0.25))",
-                  "drop-shadow(0 45px 65px rgb(var(--primary) / 0.3))",
-                ].join(", "),
-              }}
-              exit={{ y: 20, opacity: 0 }}
-              transition={{ duration: 0.8, ease: "linear" }}
-              className="absolute inset-0 scale-90 z-10"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="absolute inset-0 z-10"
             >
               <Image
                 src={phones[currentPhone]}
-                alt={`iPhone ${currentPhone + 1}`}
-                className="w-full h-full object-contain"
+                alt={`Product ${currentPhone + 1}`}
+                className="w-full h-full object-contain drop-shadow-2xl"
                 priority
               />
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
-      <div className="w-full md:w-1/2 space-y-6 md:space-y-8 mt-8 md:mt-0">
+
+      {/* بخش متنی */}
+      <div className="w-full md:w-1/2 space-y-6 md:space-y-8">
         <div className="space-y-2 md:space-y-4 text-center md:text-right">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-900 leading-snug">
             خرید اقساطی گوشی و لپتاپ
           </h1>
-          <h2 className="text-lg md:text-xl">
+          <h2 className="text-lg md:text-xl text-green-700 font-medium leading-relaxed">
             خرید گوشی و لپتاپ قسطی از کالا کارت بدون ضامن
           </h2>
         </div>
 
+        {/* آیکون‌ها و توضیحات */}
         <div className="space-y-4 md:space-y-6">
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="p-2 md:p-3 bg-white rounded-lg shadow-sm">
-              <MdEdit className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
+          {[
+            {
+              icon: <MdEdit />,
+              title: "ثبت نام آسان",
+              description: "ثبت نام ساده و آسان به صورت آنلاین یا حضوری به انتخاب شما",
+            },
+            {
+              icon: <BsSpeedometer />,
+              title: "سرعت دریافت اعتبار تامین کننده",
+              description: "قابل استفاده در کمترین زمان ممکن",
+            },
+            {
+              icon: <RiUserFollowLine />,
+              title: "بدون نیاز به ضامن",
+              description: "تکمیل پرونده تسهیلاتی و دریافت تسهیلات کالا کارت",
+            },
+            {
+              icon: <BiWallet />,
+              title: "بازپرداخت راحت و آسان",
+              description: "یک ماه پس از تخصیص اعتبار",
+            },
+          ].map(({ icon, title, description }, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-4 bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full shadow-md text-white">
+                {icon}
+              </div>
+              <div>
+                <h3 className="text-sm md:text-base font-bold text-blue-800">
+                  {title}
+                </h3>
+                <p className="text-xs md:text-sm text-gray-700">{description}</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-sm md:text-base font-semibold">
-                ثبت نام آسان
-              </h3>
-              <p className="text-xs md:text-sm text-gray-600">
-                ثبت نام ساده و آسان به صورت آنلاین یا حضوری به انتخاب شما
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="p-2 md:p-3 bg-white rounded-lg shadow-sm">
-              <BsSpeedometer className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
-            </div>
-            <div>
-              <h3 className="text-sm md:text-base font-semibold">
-                سرعت دریافت اعتبار تامین کننده
-              </h3>
-              <p className="text-xs md:text-sm text-gray-600">
-                قابل استفاده در کمترین زمان ممکن
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="p-2 md:p-3 bg-white rounded-lg shadow-sm">
-              <RiUserFollowLine className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
-            </div>
-            <div>
-              <h3 className="text-sm md:text-base font-semibold">
-                بدون نیاز به ضامن
-              </h3>
-              <p className="text-xs md:text-sm text-gray-600">
-                تکمیل پرونده تسهیلاتی و دریافت تسهیلات کالا کارت
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="p-2 md:p-3 bg-white rounded-lg shadow-sm">
-              <BiWallet className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
-            </div>
-            <div>
-              <h3 className="text-sm md:text-base font-semibold">
-                بازپرداخت راحت و آسان
-              </h3>
-              <p className="text-xs md:text-sm text-gray-600">
-                یک ماه پس از تخصیص اعتبار
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
+        {/* دکمه‌ها */}
         <div className="flex justify-center md:justify-start gap-4">
           <a
             href="#"
-            className="px-4 md:px-6 py-2 text-sm md:text-base bg-green-400 text-white rounded-lg hover:bg-green-400/90 transition-colors"
+            className="px-6 py-3 text-sm md:text-base bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:from-blue-600 hover:to-green-700 transition-transform transform hover:scale-105"
           >
             محاسبه اقساط
           </a>
