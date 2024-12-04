@@ -27,36 +27,39 @@ export default function Navbar() {
           {/* لوگو */}
           <div className="text-2xl font-extrabold text-white">لوگو</div>
 
-          {/* منوی دسکتاپ */}
-          <div className="hidden md:flex space-x-8 items-center">
-            {menuItems.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className="text-white font-medium text-lg transition-all duration-300 ease-in-out hover:text-green-200 hover:scale-105 hover:underline hover:shadow-lg focus:outline-none"
-              >
-                {item.title}
-              </Link>
-            ))}
-            {/* جستجو */}
+          {/* جستجو در مرکز */}
+          <div className="hidden md:flex w-full justify-center">
             <input
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="جستجو ..."
-              className="px-4 py-2 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-green-400 w-64"
+              className="w-1/2 px-4 py-2 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-green-400"
             />
+          </div>
+
+          {/* منوی دسکتاپ */}
+          <div className="hidden md:flex items-center space-x-4">
+            {menuItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className="text-white font-medium text-sm lg:text-base px-3 py-1 transition-all duration-300 ease-in-out hover:text-green-200 hover:underline focus:outline-none"
+              >
+                {item.title}
+              </Link>
+            ))}
             {/* ورود و ثبت‌نام */}
-            <div className="space-x-4">
+            <div className="space-x-3">
               <Link
                 href="/login"
-                className="text-white font-medium text-lg transition-all duration-300 ease-in-out hover:text-green-200 hover:underline"
+                className="text-white font-medium text-sm lg:text-base px-3 py-1 transition-all duration-300 ease-in-out hover:text-green-200 hover:underline"
               >
                 ورود
               </Link>
               <Link
                 href="/register"
-                className="text-white font-medium text-lg transition-all duration-300 ease-in-out hover:text-green-200 hover:underline"
+                className="text-white font-medium text-sm lg:text-base px-3 py-1 transition-all duration-300 ease-in-out hover:text-green-200 hover:underline"
               >
                 ثبت‌نام
               </Link>
@@ -126,13 +129,13 @@ export default function Navbar() {
                 </Link>
               </div>
               {/* جستجو */}
-              <div className="px-5 py-2">
+              <div className="px-5 py-2 mx-3 justify-center">
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={handleSearchChange}
                   placeholder="جستجو ..."
-                  className="w-full px-2 py-10 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-green-400"
+                  className="w-full px-4 py-2 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-green-400"
                 />
               </div>
             </div>
