@@ -1,129 +1,85 @@
 import Link from "next/link";
-import { FaTelegram, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaTelegram, FaInstagram, FaHeadphones } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-green-50 py-8 border-t border-green-200">
-      <div className="container mx-auto px-4 max-w-full">
-        {/* لوگو و اطلاعات تماس */}
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-          <img src="/favicon.ico" alt="Phone Pal" className="h-10" />
-          <div className="text-center sm:text-left text-sm text-black space-y-1">
-            <p>تلفن: ۰۲۱۲۲۷۵۰۰۰۰</p>
-            <p>۰۲۱۲۲۶۵۶۵۲</p>
-            <p>آدرس: تهران، خ ولیعصر، بالاتر از میدان ونک</p>
-            <div className="text-center sm:text-left text-sm text-green-700 space-y-1">
-              <p>پاسخگویی ۲۴ ساعته</p>
+    <footer className="bg-green-50 py-12 border-t border-green-200">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm text-gray-800">
+          {/* درباره ما */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-green-700">درباره ما</h3>
+            <p className="text-xs leading-relaxed">
+              این یک متن تست است
+            </p>
+          </div>
+
+          {/* تماس با ما */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-green-700">تماس با ما</h3>
+            <ul className="space-y-2 text-xs">
+              <li>ساعت پاسخ‌گویی: پاسخگویی ۲۴ ساعته</li>
+              <li>آدرس: تهران، خیابان ولیعصر، میدان ونک</li>
+              <li>
+                پشتیبانی و مشاوره رایگان:{" "}
+                <span className="font-bold text-green-800">۰۲۱۹۱۲۳۴۵۶۷</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* لینک‌های مفید */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-green-700">راهنمای خرید از فون پال</h3>
+            <ul className="space-y-2 text-xs text-green-600">
+              <li>
+                <Link href="/faq" className="hover:text-green-900">
+                  سوالات متداول
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-green-900">
+                  شرایط و ضوابط
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-green-900">
+                  ارتباط با ما
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-green-900">
+                  درباره ما
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* مجوزها */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-green-700">مجوزها</h3>
+            <div className="flex flex-col space-y-2 items-center sm:items-start">
+              <img src="#" alt="" className="h-12" />
+              <img src="#" alt= "" className="h-12" />
             </div>
           </div>
         </div>
 
-        {/* منوهای فوتر */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* با فون پال */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 text-black">با فون پال</h3>
-            <ul className="space-y-2 text-xs text-green-700">
-              <li>
-                <Link href="/news" className="hover:text-green-900 transition-colors">
-                  آقای خبر
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-green-900 transition-colors">
-                  تماس با فون پال
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-green-900 transition-colors">
-                  درباره فون پال
-                </Link>
-              </li>
-            </ul>
-          </div>
+        {/* کپی‌رایت */}
+        <div className="mt-8 border-t border-green-200 pt-4 text-xs text-gray-500 text-center">
+          کلیه حقوق این وبسایت متعلق به فون‌پال می‌باشد © ۲۰۲۴
+        </div>
 
-          {/* خدمات مشتریان */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 text-black">خدمات مشتریان</h3>
-            <ul className="space-y-2 text-xs text-green-700">
-              <li>
-                <Link href="/faq" className="hover:text-green-900 transition-colors">
-                  پاسخ به پرسش‌های متداول
-                </Link>
-              </li>
-              <li>
-                <Link href="/guide" className="hover:text-green-900 transition-colors">
-                  راهنمای کاربران
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="hover:text-green-900 transition-colors">
-                  شرایط استفاده
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="hover:text-green-900 transition-colors">
-                  حریم خصوصی
-                </Link>
-              </li>
-              <li>
-                <Link href="/report" className="hover:text-green-900 transition-colors">
-                  گزارش تخلف
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* راهنمای خرید */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 text-black">راهنمای خرید از فون پال</h3>
-            <ul className="space-y-2 text-xs text-green-700">
-              <li>
-                <Link href="/order-guide" className="hover:text-green-900 transition-colors">
-                  نحوه ثبت سفارش
-                </Link>
-              </li>
-              <li>
-                <Link href="/shipping" className="hover:text-green-900 transition-colors">
-                  رویه ارسال سفارش
-                </Link>
-              </li>
-              <li>
-                <Link href="/payment" className="hover:text-green-900 transition-colors">
-                  شیوه‌های پرداخت
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* فرم ایمیل */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 text-black">با ما همراه باشید!</h3>
-            <div className="flex gap-4 mb-4">
-              <Link href="https://telegram.org" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                <FaTelegram className="text-blue-700" size={20} />
-              </Link>
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <FaInstagram className="text-red-400" size={20} />
-              </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <FaTwitter className="text-blue-400" size={20} />
-              </Link>
-              <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <FaYoutube className="text-red-500" size={20} />
-              </Link>
-            </div>
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="ایمیل"
-                className="w-full px-3 py-2 text-xs border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-              <button className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-green-600 hover:text-green-800 transition-colors">
-                ثبت
-              </button>
-            </div>
-          </div>
+        {/* شبکه‌های اجتماعی */}
+        <div className="mt-6 flex justify-center gap-4">
+          <Link href="https://telegram.org" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <FaTelegram className="text-blue-600 hover:text-green-800 transition-colors" size={24} />
+          </Link>
+          <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <FaInstagram className="text-red-600 hover:text-green-800 transition-colors" size={24} />
+          </Link>
+          <Link href="/support" aria-label="Support">
+            <FaHeadphones className="text-green-600 hover:text-green-800 transition-colors" size={24} />
+          </Link>
         </div>
       </div>
     </footer>
