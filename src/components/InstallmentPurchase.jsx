@@ -129,13 +129,6 @@ export default function InstallmentPurchase() {
             </div>
           ))}
         </div>
-
-        {/* دکمه‌ها */}
-        <div className="flex justify-center md:justify-start gap-5 mt-6">
-          <button className="px-6 py-3 text-sm md:text-base bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:from-blue-600 hover:to-green-700 transition-transform transform hover:scale-105">
-            محاسبه اقساط
-          </button>
-        </div>
       </div>
     </div>
   );
