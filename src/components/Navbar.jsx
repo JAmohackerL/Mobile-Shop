@@ -20,13 +20,16 @@ export default function Navbar() {
     <nav className="w-full bg-gradient-to-r from-blue-600 to-green-500 shadow-lg">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* لوگو */}
-          <div className="text-2xl font-bold text-white">لوگو</div>
+          {/* لوگو و شماره تماس برای موبایل */}
+          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+            {/* لوگو */}
+            <div className="text-2xl font-bold text-white">لوگو</div>
 
-          {/* شماره تماس برای موبایل */}
-          <div className="flex items-center md:hidden text-white font-medium">
-            <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
-            <p className="text-sm lg:text-base">021-91091100</p>
+            {/* شماره تماس */}
+            <div className="flex items-center text-white font-medium">
+              <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
+              <p className="text-sm lg:text-base">021-91091100</p>
+            </div>
           </div>
 
           {/* منوی دسکتاپ */}
