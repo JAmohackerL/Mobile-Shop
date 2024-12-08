@@ -30,7 +30,7 @@ export default function InstallmentPurchase() {
   return (
     <div className="mt-8 md:mt-12 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto space-y-8 md:space-y-0">
       {/* بخش تصویر */}
-      <div className="w-full md:w-2/3 mt-8 md:mt-0 mb-12">
+      <div className="w-full md:w-1/2 mt-8 md:mt-0 mb-12">
         <div className="relative w-full aspect-square max-w-[80px] sm:max-w-md mx-auto mb-16 mt-32">
           <div className="absolute inset-[5%] rounded-full bg-gradient-to-r from-green-400 to-blue-500 shadow-xl blur-md"></div>
 
