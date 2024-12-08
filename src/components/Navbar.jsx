@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Link from "next/link";
 import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Navbar() {
@@ -10,7 +9,7 @@ export default function Navbar() {
   const menuItems = [
     { title: "خانه", path: "/" },
     { title: "درباره ما", path: "/about" },
-    { title: "وبلاگ", path: "/contact" },
+    { title: "وبلاگ", path: "/blog" },
   ];
 
   const toggleMenu = useCallback(() => {
@@ -18,34 +17,37 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full bg-gradient-to-r from-green-400 to-green-600 shadow-lg rtl">
-      <div className="container mx-auto px-6">
+    <nav className="w-full bg-gradient-to-r from-blue-600 to-green-500 shadow-lg">
+      <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* لوگو */}
-          <div className="text-2xl font-extrabold text-white">لوگو</div>
+          <div className="text-2xl font-bold text-white">لوگو</div>
 
           {/* منوی دسکتاپ */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
             {menuItems.map((item) => (
-              <Link
+              <a
                 key={item.path}
                 href={item.path}
-                className="text-white font-medium text-sm lg:text-base px-3 py-1 transition-all duration-300 ease-in-out hover:text-green-200 hover:underline focus:outline-none whitespace-nowrap"
+                className="text-white font-medium text-sm lg:text-base px-3 py-1 hover:bg-white hover:text-green-600 rounded-lg transition"
               >
                 {item.title}
-              </Link>
+              </a>
             ))}
+
             {/* شماره تماس */}
-            <div className="flex items-center space-x-2 text-white font-bold text-sm lg:text-base">
-              <FaPhoneAlt className="text-green-200 ml-2" /> {/* فاصله با شماره */}
-              <span>021-91091100</span>
-              <span className="text-green-100 text-xs lg:text-sm">
-                | تماس با ما
-              </span>
+            <div className="flex items-center text-white font-medium">
+              <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
+              <div>
+                <p className="text-sm lg:text-base">021-91091100</p>
+                <p className="text-xs lg:text-sm text-green-100">
+                  مشاوره و پشتیبانی رایگان
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* دکمه همبرگر */}
+          {/* دکمه منوی موبایل */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
@@ -78,25 +80,26 @@ export default function Navbar() {
 
         {/* منوی موبایل */}
         {isOpen && (
-          <div className="md:hidden bg-gradient-to-b from-green-500 to-green-600 rounded-lg shadow-xl transform scale-100 transition-all duration-500 ease-out">
-            <div className="px-2 pt-2 pb-3 space-y-3">
+          <div className="mt-2 bg-gradient-to-b from-blue-500 to-green-500 rounded-lg shadow-lg md:hidden">
+            <div className="px-4 py-3 space-y-2">
               {menuItems.map((item) => (
-                <Link
+                <a
                   key={item.path}
                   href={item.path}
-                  className="block px-3 py-2 rounded-md text-white font-medium text-lg transition-all duration-300 ease-in-out hover:bg-green-700 hover:scale-105 hover:rounded-lg focus:outline-none"
+                  className="block text-white font-medium text-sm lg:text-base px-3 py-2 hover:bg-white hover:text-green-600 rounded-lg transition"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
-                </Link>
+                </a>
               ))}
-              {/* شماره تماس */}
-              <div className="flex items-center justify-center space-x-2 text-white font-bold text-lg">
-                <FaPhoneAlt className="text-green-200 ml-2" /> {/* فاصله با شماره */}
-                <span>021-91091100</span>
-                <span className="text-green-100 text-sm">
-                  | مشاوره و پشتیبانی رایگان
-                </span>
+              <div className="flex items-center text-white font-medium">
+                <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
+                <div>
+                  <p className="text-sm lg:text-base">021-91091100</p>
+                  <p className="text-xs lg:text-sm text-green-100">
+                    مشاوره و پشتیبانی رایگان
+                  </p>
+                </div>
               </div>
             </div>
           </div>
