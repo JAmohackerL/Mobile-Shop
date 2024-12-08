@@ -64,7 +64,7 @@ export default function Home() {
         {/* فرم مشاوره */}
         <section className="mt-24 max-w-2xl mx-auto bg-green-50 p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-bold text-green-900 mb-4 text-center">
-            فرم مشاوره
+            محاسبه اقساط
           </h2>
           <ConsultationForm />
         </section>

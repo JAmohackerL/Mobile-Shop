@@ -93,7 +93,7 @@ export default function Navbar() {
               {/* شماره تماس */}
               <div className="flex items-center justify-center space-x-2 text-white font-bold text-lg">
                 <FaPhoneAlt className="text-green-200 ml-2" /> {/* فاصله با شماره */}
-                <span>021-910-911-00</span>
+                <span>021-91091100</span>
                 <span className="text-green-100 text-sm">
                   | مشاوره و پشتیبانی رایگان
                 </span>

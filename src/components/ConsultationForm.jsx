@@ -2,35 +2,42 @@
 
 import { useState } from "react";
 
-export default function ConsultationForm() {
+export default function InstallmentCalculator() {
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    productType: "phone",
-    budget: "",
-    message: "",
+    totalPrice: "",
+    installments: "",
+    interestRate: "",
   });
 
+  const [installmentAmount, setInstallmentAmount] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  // تابع محاسبه اقساط
+  const calculateInstallment = (e) => {
     e.preventDefault();
 
-    // اعتبارسنجی ساده شماره تماس
-    if (!/^\d{10,11}$/.test(formData.phone)) {
-      setSubmissionStatus("شماره تماس معتبر نیست.");
+    const { totalPrice, installments, interestRate } = formData;
+
+    // اعتبارسنجی داده‌ها
+    if (
+      !totalPrice ||
+      !installments ||
+      !interestRate ||
+      totalPrice <= 0 ||
+      installments <= 0 ||
+      interestRate <= 0
+    ) {
+      setSubmissionStatus("لطفا همه فیلدها را به درستی وارد کنید.");
       return;
     }
 
-    console.log(formData);
-    setSubmissionStatus("درخواست شما با موفقیت ارسال شد!");
-    setFormData({
-      name: "",
-      phone: "",
-      productType: "phone",
-      budget: "",
-      message: "",
-    });
+    // محاسبه اقساط
+    const interest = (totalPrice * interestRate) / 100;
+    const totalAmount = parseFloat(totalPrice) + interest;
+    const monthlyInstallment = totalAmount / parseInt(installments, 10);
+
+    setInstallmentAmount(monthlyInstallment.toFixed(2));
+    setSubmissionStatus("محاسبه با موفقیت انجام شد!");
   };
 
   const handleChange = (e) => {
@@ -43,8 +50,9 @@ export default function ConsultationForm() {
   return (
     <div className="bg-gray-50 p-8 rounded-lg shadow-lg max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
-        فرم مشاوره خرید اقساطی با کالا کارت
+        فرم محاسبه اقساط
       </h2>
+
       {submissionStatus && (
         <p
           className={`text-center mb-4 ${
@@ -56,69 +64,44 @@ export default function ConsultationForm() {
           {submissionStatus}
         </p>
       )}
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block mb-2 text-gray-700">نام و نام خانوادگی:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="مثال: علی احمدی"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
-            required
-          />
-        </div>
 
+      <form onSubmit={calculateInstallment} className="space-y-6">
         <div>
-          <label className="block mb-2 text-gray-700">شماره تماس:</label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="مثال: 09123456789"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-gray-700">نوع محصول:</label>
-          <select
-            name="productType"
-            value={formData.productType}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
-          >
-            <option value="phone">گوشی موبایل</option>
-            <option value="laptop">لپ تاپ</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block mb-2 text-gray-700">
-            بودجه مورد نظر (تومان):
-          </label>
+          <label className="block mb-2 text-gray-700">قیمت کل (تومان):</label>
           <input
             type="number"
-            name="budget"
-            value={formData.budget}
+            name="totalPrice"
+            value={formData.totalPrice}
             onChange={handleChange}
-            placeholder="مثال: 20,000,000"
+            placeholder="مثال: 20000000"
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2 text-gray-700">توضیحات:</label>
-          <textarea
-            name="message"
-            value={formData.message}
+          <label className="block mb-2 text-gray-700">تعداد اقساط:</label>
+          <input
+            type="number"
+            name="installments"
+            value={formData.installments}
             onChange={handleChange}
-            placeholder="توضیحات اضافی خود را اینجا بنویسید..."
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 h-32 transition-all"
+            placeholder="مثال: 12"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-gray-700">نرخ بهره (%):</label>
+          <input
+            type="number"
+            name="interestRate"
+            value={formData.interestRate}
+            onChange={handleChange}
+            placeholder="مثال: 5"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            required
           />
         </div>
 
@@ -126,9 +109,17 @@ export default function ConsultationForm() {
           type="submit"
           className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-500 hover:scale-105 transition-all"
         >
-          ارسال درخواست مشاوره
+          محاسبه اقساط
         </button>
       </form>
+
+      {installmentAmount && (
+        <div className="mt-6 text-center">
+          <p className="text-lg font-semibold text-blue-800">
+            مبلغ ماهانه اقساط: {installmentAmount} تومان
+          </p>
+        </div>
+      )}
     </div>
   );
 }
