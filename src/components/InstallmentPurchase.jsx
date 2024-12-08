@@ -12,6 +12,7 @@ import iphone3 from "@/assets/images/mobilecover3.png";
 import iphone4 from "@/assets/images/mobilecover4.png";
 import laptop from "@/assets/images/laptoppp.png";
 import Image from "next/image";
+import bank from "@/assets/images/bank.png";
 
 const phones = [iphone, laptop, iphone2, iphone3, iphone4];
 
@@ -55,7 +56,7 @@ export default function InstallmentPurchase() {
 
       {/* بخش متنی */}
       <div className="w-full md:w-1/2 space-y-6 md:space-y-8">
-        <div className="space-y-2 md:space-y-4 text-center md:text-right">
+        <div className="space-y-4 md:space-y-4 text-center md:text-right">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-900 leading-snug">
             خرید اقساطی گوشی و لپتاپ
           </h1>
@@ -64,9 +65,32 @@ export default function InstallmentPurchase() {
           </h2>
         </div>
 
+        {/* بخش کالا برگ */}
+        <div className="relative flex justify-center mt-8">
+          {/* پس‌زمینه گرادیانت */}
+          <div className="absolute w-4/5 h-4/5 rounded-lg bg-gradient-to-tr from-green-400 to-blue-500 blur-2xl opacity-40 -z-10"></div>
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
+            className="relative"
+          >
+            <Image
+              src={bank} // استفاده از تصویر bank
+              alt="تصویر کالا برگ"
+              width={600} // عرض تصویر
+              height={300} // ارتفاع تصویر
+              className="object-contain rounded-lg shadow-2xl hover:shadow-[0_0_50px_0px_rgba(0,128,255,0.6)] transition-all duration-500"
+              priority
+            />
+          </motion.div>
+        </div>
+
         {/* آیکون‌ها و توضیحات */}
         <div className="space-y-4 md:space-y-6">
-          {[{
+          {[
+            {
               icon: <MdEdit />,
               title: "ثبت نام آسان",
               description: "ثبت نام ساده و آسان به صورت آنلاین یا حضوری به انتخاب شما",
@@ -85,7 +109,7 @@ export default function InstallmentPurchase() {
               icon: <BiWallet />,
               title: "بازپرداخت راحت و آسان",
               description: "یک ماه پس از تخصیص اعتبار",
-            }
+            },
           ].map(({ icon, title, description }, idx) => (
             <div
               key={idx}
@@ -105,10 +129,8 @@ export default function InstallmentPurchase() {
         </div>
 
         {/* دکمه‌ها */}
-        <div className="flex justify-center md:justify-start gap-4">
-          <button
-            className="px-6 py-3 text-sm md:text-base bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:from-blue-600 hover:to-green-700 transition-transform transform hover:scale-105"
-          >
+        <div className="flex justify-center md:justify-start gap-4 mt-4">
+          <button className="px-6 py-3 text-sm md:text-base bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:from-blue-600 hover:to-green-700 transition-transform transform hover:scale-105">
             محاسبه اقساط
           </button>
         </div>
