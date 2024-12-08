@@ -30,8 +30,8 @@ export default function InstallmentPurchase() {
   return (
     <div className="mt-8 md:mt-12 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto space-y-8 md:space-y-0">
       {/* بخش تصویر */}
-      <div className="w-full md:w-1/2 mt-8 md:mt-0 mb-12">
-        <div className="relative w-full aspect-square max-w-[80px] sm:max-w-md mx-auto mb-16 mt-32">
+      <div className="w-full md:w-2/3 mt-8 md:mt-0 mb-30">
+        <div className="relative w-full aspect-square max-w-[80px] sm:max-w-md mx-auto mb-80 mt-120">
           <div className="absolute inset-[5%] rounded-full bg-gradient-to-r from-green-400 to-blue-500 shadow-xl blur-md"></div>
 
           <AnimatePresence mode="popLayout">
@@ -56,11 +56,11 @@ export default function InstallmentPurchase() {
 
       {/* بخش متنی */}
       <div className="w-full md:w-1/2 space-y-6 md:space-y-8">
-        <div className="space-y-5 md:space-y-4 text-center md:text-right mr-6">
-          <h1 className="text-3xl md:text-3xl lg:text-4xl font-extrabold text-blue-900 leading-snug">
+        <div className="space-y-4 md:space-y-4 text-center md:text-right">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-900 leading-snug">
             خرید اقساطی گوشی و لپتاپ
           </h1>
-          <h2 className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed">
+          <h2 className="text-lg md:text-xl text-green-700 font-medium leading-relaxed">
             خرید گوشی و لپتاپ قسطی از کالا کارت بدون ضامن
           </h2>
         </div>
@@ -88,35 +88,41 @@ export default function InstallmentPurchase() {
 
         {/* آیکون‌ها و توضیحات */}
         <div className="space-y-6 md:space-y-0 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[{
-            icon: <MdEdit />,
-            title: "ثبت نام آسان",
-            description: "ثبت نام ساده و آسان به صورت آنلاین یا حضوری به انتخاب شما"
-          },
-          {
-            icon: <BsSpeedometer />,
-            title: "سرعت دریافت اعتبار تامین کننده",
-            description: "قابل استفاده در کمترین زمان ممکن"
-          },
-          {
-            icon: <RiUserFollowLine />,
-            title: "بدون نیاز به ضامن",
-            description: "تکمیل پرونده تسهیلاتی و دریافت تسهیلات کالا کارت"
-          },
-          {
-            icon: <BiWallet />,
-            title: "بازپرداخت راحت و آسان",
-            description: "یک ماه پس از تخصیص اعتبار"
-          }].map(({ icon, title, description }, idx) => (
+          {[ // برای هر بخش
+            {
+              icon: <MdEdit />,
+              title: "ثبت نام آسان",
+              description: "ثبت نام ساده و آسان به صورت آنلاین یا حضوری به انتخاب شما",
+              className: "md:justify-end text-right"  // اضافه کردن کلاس justify-end و text-right برای راست چین
+            },
+            {
+              icon: <BsSpeedometer />,
+              title: "سرعت دریافت اعتبار تامین کننده",
+              description: "قابل استفاده در کمترین زمان ممکن",
+              className: "md:justify-end text-right"  // اضافه کردن کلاس justify-end و text-right برای راست چین
+            },
+            {
+              icon: <RiUserFollowLine />,
+              title: "بدون نیاز به ضامن",
+              description: "تکمیل پرونده تسهیلاتی و دریافت تسهیلات کالا کارت",
+            },
+            {
+              icon: <BiWallet />,
+              title: "بازپرداخت راحت و آسان",
+              description: "یک ماه پس از تخصیص اعتبار",
+            },
+          ].map(({ icon, title, description, className }, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-4 bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              className={`flex items-center gap-4 bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ${className}`}
             >
               <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full shadow-md text-white">
                 {icon}
               </div>
               <div>
-                <h3 className="text-sm md:text-base font-bold text-blue-800">{title}</h3>
+                <h3 className="text-sm md:text-base font-bold text-blue-800">
+                  {title}
+                </h3>
                 <p className="text-xs md:text-sm text-gray-700">{description}</p>
               </div>
             </div>
@@ -124,7 +130,7 @@ export default function InstallmentPurchase() {
         </div>
 
         {/* دکمه‌ها */}
-        <div className="flex justify-center md:justify-start gap-5 mt-9 mr-40">
+        <div className="flex justify-center md:justify-start gap-5 mt-9 mr-28">
           <button className="px-8 py-3 text-sm md:text-base bg-gradient-to-r from-green-500 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:from-blue-600 hover:to-green-700 transition-transform transform hover:scale-105">
             محاسبه اقساط
           </button>
