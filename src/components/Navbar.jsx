@@ -23,6 +23,12 @@ export default function Navbar() {
           {/* لوگو */}
           <div className="text-2xl font-bold text-white">لوگو</div>
 
+          {/* شماره تماس برای موبایل */}
+          <div className="flex items-center md:hidden text-white font-medium">
+            <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
+            <p className="text-sm lg:text-base">021-91091100</p>
+          </div>
+
           {/* منوی دسکتاپ */}
           <div className="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
             {menuItems.map((item) => (
@@ -35,8 +41,8 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* شماره تماس */}
-            <div className="flex items-center text-white font-medium">
+            {/* شماره تماس برای دسکتاپ */}
+            <div className="hidden md:flex items-center text-white font-medium">
               <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
               <div>
                 <p className="text-sm lg:text-base">021-91091100</p>
@@ -92,15 +98,6 @@ export default function Navbar() {
                   {item.title}
                 </a>
               ))}
-              <div className="flex items-center text-white font-medium">
-                <FaPhoneAlt className="text-green-200 ml-2 text-xl" />
-                <div>
-                  <p className="text-sm lg:text-base">021-91091100</p>
-                  <p className="text-xs lg:text-sm text-green-100">
-                    مشاوره و پشتیبانی رایگان
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         )}
