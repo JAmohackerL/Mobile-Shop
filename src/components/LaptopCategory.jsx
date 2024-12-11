@@ -7,12 +7,12 @@ import lenovo from "@/assets/images/laptopLenovo.png";
 import msi from "@/assets/images/laptopMsi.png";
 
 const brands = [
-  { name: "اپل", image: apple },
-  { name: "ایسر", image: acer },
-  { name: "ایسوس", image: asus },
-  { name: "اچ‌پی", image: hp },
-  { name: "لنوو", image: lenovo },
-  { name: "ام اس آی", image: msi },
+  { name: "Apple", image: apple, theme: { from: "from-gray-800", to: "to-gray-600" } },
+  { name: "Acer", image: acer, theme: { from: "from-green-500", to: "to-green-700" } },
+  { name: "Asus", image: asus, theme: { from: "from-blue-500", to: "to-blue-700" } },
+  { name: "HP", image: hp, theme: { from: "from-indigo-500", to: "to-indigo-700" } },
+  { name: "Lenovo", image: lenovo, theme: { from: "from-red-500", to: "to-red-700" } },
+  { name: "MSI", image: msi, theme: { from: "from-purple-500", to: "to-purple-700" } },
 ];
 
 export default function LaptopCategory() {
@@ -32,7 +32,7 @@ export default function LaptopCategory() {
         {brands.map((brand, index) => (
           <div
             key={index}
-            className="group flex flex-col items-center justify-center p-6 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+            className={`group flex flex-col items-center justify-center p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer bg-gradient-to-tr ${brand.theme.from} ${brand.theme.to}`}
           >
             {/* تصویر برند */}
             <div className="relative w-24 h-14 sm:w-32 sm:h-20 md:w-36 md:h-24 transform group-hover:scale-110 transition-transform duration-300">

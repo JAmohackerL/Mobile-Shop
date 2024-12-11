@@ -2,7 +2,7 @@ import { MdSecurity, MdSupportAgent } from "react-icons/md";
 import { TbTruckReturn } from "react-icons/tb";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import ServiceIcon from "@/components/ServiceIcon";
-import InstallmentPurchase from "@/components/InstallmentPurchase";
+import InstallmentPurchase from "@/components/InstallmentCalculator";
 import PhoneCategory from "@/components/PhoneCategory";
 import LaptopCategory from "@/components/LaptopCategory";
 import Laptop360View from "@/components/Laptop360View.jsx";

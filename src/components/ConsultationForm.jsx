@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function InstallmentCalculator() {
   const [formData, setFormData] = useState({
     totalPrice: "",
-    installments: "",
     interestRate: "",
+    installments: "",
   });
 
   const [installmentAmount, setInstallmentAmount] = useState(null);
@@ -25,7 +25,7 @@ export default function InstallmentCalculator() {
       !interestRate ||
       totalPrice <= 0 ||
       installments <= 0 ||
-      interestRate <= 0
+      interestRate < 0
     ) {
       setSubmissionStatus("لطفا همه فیلدها را به درستی وارد کنید.");
       return;
@@ -36,7 +36,7 @@ export default function InstallmentCalculator() {
     const totalAmount = parseFloat(totalPrice) + interest;
     const monthlyInstallment = totalAmount / parseInt(installments, 10);
 
-    setInstallmentAmount(monthlyInstallment.toFixed(2));
+    setInstallmentAmount(monthlyInstallment.toFixed(0));
     setSubmissionStatus("محاسبه با موفقیت انجام شد!");
   };
 
@@ -47,15 +47,19 @@ export default function InstallmentCalculator() {
     });
   };
 
+  const handleInstallmentSelect = (value) => {
+    setFormData({ ...formData, installments: value });
+  };
+
   return (
-    <div className="bg-gray-50 p-8 rounded-lg shadow-lg max-w-md mx-auto">
+    <div className="bg-green-50 p-8 rounded-2xl shadow-xl max-w-lg mx-auto border border-green-300">
       <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
         فرم محاسبه اقساط
       </h2>
 
       {submissionStatus && (
         <p
-          className={`text-center mb-4 ${
+          className={`text-center mb-4 font-medium text-sm ${
             submissionStatus.includes("موفقیت")
               ? "text-green-600"
               : "text-red-500"
@@ -67,42 +71,57 @@ export default function InstallmentCalculator() {
 
       <form onSubmit={calculateInstallment} className="space-y-6">
         <div>
-          <label className="block mb-2 text-gray-700">قیمت کل (تومان):</label>
+          <label className="block mb-2 text-gray-600">مبلغ درخواستی (تومان):</label>
           <input
             type="number"
             name="totalPrice"
             value={formData.totalPrice}
             onChange={handleChange}
-            placeholder="مثال: 20000000"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            placeholder="مثال: 10000000"
+            className="w-full p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2 text-gray-700">تعداد اقساط:</label>
-          <input
-            type="number"
-            name="installments"
-            value={formData.installments}
-            onChange={handleChange}
-            placeholder="مثال: 12"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-gray-700">نرخ بهره (%):</label>
+          <label className="block mb-2 text-gray-600">نرخ بهره (٪):</label>
           <input
             type="number"
             name="interestRate"
             value={formData.interestRate}
             onChange={handleChange}
-            placeholder="مثال: 5"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            placeholder="مثال: 18"
+            className="w-full p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             required
           />
+        </div>
+
+        <div className="text-center">
+          <p className="text-gray-600 font-medium mb-3">مدت زمان بازپرداخت:</p>
+          <div className="flex justify-center gap-4">
+            <button
+              type="button"
+              className={`px-6 py-2 rounded-lg border text-sm font-medium ${
+                formData.installments === "12"
+                  ? "bg-green-600 text-white"
+                  : "bg-green-100 border-green-300 text-green-700"
+              } hover:scale-105 transition-all`}
+              onClick={() => handleInstallmentSelect("12")}
+            >
+              ۱۲ ماهه
+            </button>
+            <button
+              type="button"
+              className={`px-6 py-2 rounded-lg border text-sm font-medium ${
+                formData.installments === "18"
+                  ? "bg-green-600 text-white"
+                  : "bg-green-100 border-green-300 text-green-700"
+              } hover:scale-105 transition-all`}
+              onClick={() => handleInstallmentSelect("18")}
+            >
+              ۱۸ ماهه
+            </button>
+          </div>
         </div>
 
         <button
@@ -115,8 +134,8 @@ export default function InstallmentCalculator() {
 
       {installmentAmount && (
         <div className="mt-6 text-center">
-          <p className="text-lg font-semibold text-blue-800">
-            مبلغ ماهانه اقساط: {installmentAmount} تومان
+          <p className="text-lg font-semibold text-green-800">
+            مبلغ هر قسط: <span className="text-green-600">{installmentAmount} تومان</span>
           </p>
         </div>
       )}
