@@ -54,7 +54,7 @@ export default function InstallmentCalculator() {
   return (
     <div className="bg-green-50 p-8 rounded-2xl shadow-xl max-w-lg mx-auto border border-green-300">
       <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
-        فرم محاسبه اقساط
+         محاسبه اقساط
       </h2>
 
       {submissionStatus && (
