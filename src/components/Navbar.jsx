@@ -42,13 +42,24 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* لوگو و شماره تماس برای موبایل */}
+          {/* لوگو و شماره تماس */}
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
             {/* لوگو */}
             <div className="text-2xl font-bold text-white">
               <span className="bg-white text-green-600 px-3 py-1 rounded-lg shadow-md">
                 لوگو
               </span>
+            </div>
+
+            {/* شماره تماس */}
+            <div className="flex items-center text-white font-medium">
+              <FaPhoneAlt className="text-white bg-green-600 p-2 rounded-full shadow-lg ml-3 text-xl" />
+              <div>
+                <p className="text-sm lg:text-base">021-91091100</p>
+                <p className="text-xs lg:text-sm text-green-100">
+                  مشاوره و پشتیبانی رایگان
+                </p>
+              </div>
             </div>
           </div>
 
@@ -63,17 +74,6 @@ export default function Navbar() {
                 {item.title}
               </a>
             ))}
-
-            {/* شماره تماس برای دسکتاپ */}
-            <div className="hidden md:flex items-center text-white font-medium">
-              <FaPhoneAlt className="text-white bg-green-600 p-2 rounded-full shadow-lg ml-3 text-xl" />
-              <div>
-                <p className="text-sm lg:text-base">021-91091100</p>
-                <p className="text-xs lg:text-sm text-green-100">
-                  مشاوره و پشتیبانی رایگان
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* دکمه منوی موبایل */}
@@ -121,17 +121,6 @@ export default function Navbar() {
                   {item.title}
                 </a>
               ))}
-
-              {/* شماره تماس برای موبایل */}
-              <div className="flex items-center text-white font-medium mt-4">
-                <FaPhoneAlt className="text-white bg-green-600 p-2 rounded-full shadow-lg ml-3 text-xl" />
-                <div>
-                  <p className="text-sm">021-91091100</p>
-                  <p className="text-xs text-green-100">
-                    مشاوره و پشتیبانی رایگان
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         )}
