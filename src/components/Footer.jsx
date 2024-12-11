@@ -78,7 +78,7 @@ export default function Footer() {
             <FaInstagram className="text-red-600 hover:text-green-800 transition-colors" size={24} />
           </Link>
           <Link href="/support" aria-label="Support">
-            <FaHeadphones className="text-green-600 hover:text-green-800 transition-colors" size={24} />
+            <FaHeadphones className="text-black hover:text-green-800 transition-colors" size={24} />
           </Link>
         </div>
       </div>

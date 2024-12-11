@@ -14,28 +14,24 @@ const bestSellers = [
     name: "گوشی موبایل اپل مدل iPhone 13",
     image: Iphone13,
     rating: 4.5,
-    price: "40,000,000 تومان",
   },
   {
     id: 2,
     name: "گوشی موبایل سامسونگ مدل Galaxy S23",
     image: SamsungS23,
     rating: 4.2,
-    price: "35,000,000 تومان",
   },
   {
     id: 3,
     name: "گوشی موبایل سامسونگ مدل Galaxy S24",
     image: S24,
     rating: 4.8,
-    price: "50,000,000 تومان",
   },
   {
     id: 4,
     name: "گوشی موبایل سامسونگ مدل Galaxy A55",
     image: A55,
     rating: 4.3,
-    price: "25,000,000 تومان",
   },
 ];
 
@@ -94,15 +90,15 @@ export default function BestSellers() {
   };
 
   return (
-    <div className="w-full bg-gray-100 py-8 px-4">
-      <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
+    <div className="w-full bg-gradient-to-b from-green-50 to-blue-50 py-12 px-4">
+      <h2 className="text-3xl font-extrabold mb-8 text-center text-green-700">
         پرفروش‌ترین‌ها
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {bestSellers.map((phone) => (
           <div
             key={phone.id}
-            className="bg-white rounded-lg p-4 shadow-md hover:shadow-2xl hover:scale-105 transform transition-transform duration-300"
+            className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform duration-300"
           >
             <div
               className="cursor-pointer"
@@ -114,17 +110,19 @@ export default function BestSellers() {
                   alt={phone.name}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  className="object-contain"
+                  className="object-contain rounded-md hover:opacity-90 transition-opacity"
                   placeholder="blur"
                   priority={phone.id <= 2}
                 />
               </div>
-              <h3 className="text-sm font-medium text-right mb-2 line-clamp-2">
+              <h3 className="text-lg font-semibold text-right mb-2 line-clamp-2 text-gray-800">
                 {phone.name}
               </h3>
-              <p className="text-right text-gray-700 font-bold">{phone.price}</p>
+              <p className="text-right text-gray-600 font-bold text-lg">
+                {phone.price}
+              </p>
               <RatingStars rating={phone.rating} />
-              <p className="text-center text-green-600 font-bold mt-2">
+              <p className="text-center text-green-600 font-bold mt-4 hover:text-green-700 transition">
                 برای مشاهده قیمت کلیک کنید
               </p>
             </div>
