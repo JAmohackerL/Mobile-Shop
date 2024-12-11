@@ -14,18 +14,18 @@ const Laptop360View = () => {
     bgSize: "1280px 17454px",
   });
 
-  // محاسبه ابعاد دقیق با استفاده از useCallback
+  // Calculate dimensions dynamically
   const calculateDimensions = useCallback(() => {
     const viewportWidth = window.innerWidth;
     let newWidth = 1130;
     let newHeight = 480;
 
     if (viewportWidth < 768) {
-      // موبایل
+      // Mobile
       newWidth = viewportWidth - 32; // 16px padding from each side
       newHeight = (newWidth * 480) / 1130;
     } else if (viewportWidth < 1130) {
-      // تبلت
+      // Tablet
       newWidth = viewportWidth - 64;
       newHeight = (newWidth * 480) / 1130;
     }
@@ -43,7 +43,7 @@ const Laptop360View = () => {
     return () => window.removeEventListener("resize", calculateDimensions);
   }, [calculateDimensions]);
 
-  // تغییرات اسلایدر
+  // Handle slider changes
   const handleSliderChange = (e) => {
     const value = parseInt(e.target.value);
     setSliderValue(value);
@@ -53,11 +53,11 @@ const Laptop360View = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 px-4 md:px-8">
-      {/* قاب لپ‌تاپ */}
+    <div className="flex flex-col items-center gap-8 px-4 md:px-8">
+      {/* Laptop Frame */}
       <div
         ref={containerRef}
-        className="w-full mx-auto rounded-lg shadow-lg"
+        className="w-full mx-auto rounded-lg shadow-2xl"
         style={{
           height: `${dimensions.height}px`,
           width: `${dimensions.width}px`,
@@ -65,23 +65,26 @@ const Laptop360View = () => {
           backgroundSize: dimensions.bgSize,
           backgroundPosition: "0px 0px",
           backgroundRepeat: "no-repeat",
-          border: "4px solid #10b981", // سبز روشن
+          border: "6px solid #10b981", // Bright green border
+          boxShadow: "0 10px 30px rgba(16, 185, 129, 0.4)",
         }}
       />
-      {/* اسلایدر */}
+
+      {/* Slider */}
       <input
         type="range"
         min="0"
         max={totalFrames - 1}
         value={sliderValue}
         onChange={handleSliderChange}
-        className="w-full max-w-[500px] h-2 bg-green-200 rounded-lg appearance-none cursor-pointer transition-transform transform hover:scale-105 focus:outline-none"
+        className="w-full max-w-[500px] h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-green-400"
         style={{
-          background: `linear-gradient(to right, #10b981 ${((sliderValue + 1) / totalFrames) * 100}%, #e5e7eb ${(sliderValue / totalFrames) * 100}%)`,
+          background: `linear-gradient(to right, #10b981 ${((sliderValue + 1) / totalFrames) * 100}%, #d1d5db ${(sliderValue / totalFrames) * 100}%)`,
         }}
       />
-      {/* متن راهنمای اسلایدر */}
-      <div className="text-green-700 font-medium text-sm md:text-base">
+
+      {/* Slider Hint */}
+      <div className="text-green-800 font-semibold text-sm md:text-base animate-pulse">
         برای چرخش لپ‌تاپ از اسلایدر استفاده کنید
       </div>
     </div>

@@ -34,7 +34,7 @@ const services = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="container mx-auto px-4 py-10">
         {/* خرید اقساطی */}
         <section className="mb-16">
@@ -42,9 +42,9 @@ export default function Home() {
         </section>
 
         {/* خدمات فروشگاه */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-6xl mx-auto mt-12">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 w-full max-w-6xl mx-auto mt-12">
           {services.map((service, index) => (
-            <ServiceIcon key={index} {...service} />
+            <ServiceIcon key={index} {...service} className="hover:scale-105 transition-transform duration-300" />
           ))}
         </section>
 
@@ -62,10 +62,10 @@ export default function Home() {
         </section>
 
         {/* فرم مشاوره */}
-        <section className="mt-24 max-w-2xl mx-auto bg-green-50 p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold text-green-900 mb-4 text-center">
+        <section className="mt-24 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg relative">
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xl font-bold px-4 py-2 rounded-full shadow-lg">
             محاسبه اقساط
-          </h2>
+          </div>
           <ConsultationForm />
         </section>
       </div>

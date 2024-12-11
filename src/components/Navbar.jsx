@@ -5,7 +5,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false); // برای بررسی اسکرول
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const menuItems = [
     { title: "خانه", path: "/" },
@@ -17,7 +17,6 @@ export default function Navbar() {
     setIsOpen((prevState) => !prevState);
   }, []);
 
-  // تابعی برای تغییر وضعیت اسکرول
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
@@ -26,7 +25,6 @@ export default function Navbar() {
     }
   };
 
-  // اضافه کردن لیسنر به اسکرول
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -36,47 +34,45 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`w-full bg-gradient-to-r from-green-600 via-green-500 to-green-400 shadow-xl sticky top-0 z-50 ${
-        isScrolled ? "shadow-lg" : ""
+      className={`w-full bg-gradient-to-r from-green-700 via-green-500 to-green-400 sticky top-0 z-50 transition-shadow duration-300 ${
+        isScrolled ? "shadow-lg" : "shadow-none"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* لوگو و شماره تماس */}
+          {/* Logo and Contact */}
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
-            {/* لوگو */}
             <div className="text-2xl font-bold text-white">
               <span className="bg-white text-green-600 px-3 py-1 rounded-lg shadow-md">
                 لوگو
               </span>
             </div>
 
-            {/* شماره تماس */}
-            <div className="flex items-center text-white font-medium">
-              <FaPhoneAlt className="text-white bg-green-600 p-2 rounded-full shadow-lg ml-3 text-xl" />
-              <div>
-                <p className="text-sm lg:text-base">021-91091100</p>
-                <p className="text-xs lg:text-sm text-green-100">
+            <div className="flex items-center text-white font-medium space-x-3 rtl:space-x-reverse">
+              <FaPhoneAlt className="text-white bg-green-700 p-2 rounded-full shadow-lg text-2xl" />
+              <div className="text-left">
+                <p className="text-lg font-extrabold">021-91091100</p>
+                <p className="text-sm text-green-200 font-light">
                   مشاوره و پشتیبانی رایگان
                 </p>
               </div>
             </div>
           </div>
 
-          {/* منوی دسکتاپ */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
             {menuItems.map((item) => (
               <a
                 key={item.path}
                 href={item.path}
-                className="text-white font-medium text-sm lg:text-base px-4 py-2 bg-green-500 hover:bg-white hover:text-green-600 rounded-lg transition duration-300 shadow-md"
+                className="text-white font-semibold text-sm lg:text-base px-4 py-2 bg-green-500 hover:bg-white hover:text-green-600 rounded-lg transition-all duration-300 shadow-md"
               >
                 {item.title}
               </a>
             ))}
           </div>
 
-          {/* دکمه منوی موبایل */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
@@ -107,15 +103,15 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* منوی موبایل */}
+        {/* Mobile Menu */}
         {isOpen && (
-          <div className="mt-2 bg-gradient-to-b from-green-600 to-green-400 rounded-lg shadow-lg md:hidden">
+          <div className="mt-2 bg-gradient-to-b from-green-700 to-green-500 rounded-lg shadow-lg md:hidden">
             <div className="px-4 py-3 space-y-3">
               {menuItems.map((item) => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className="block text-white font-medium text-sm lg:text-base px-4 py-2 bg-green-500 hover:bg-white hover:text-green-600 rounded-lg transition duration-300 shadow-md"
+                  className="block text-white font-semibold text-sm lg:text-base px-4 py-2 bg-green-500 hover:bg-white hover:text-green-600 rounded-lg transition-all duration-300 shadow-md"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
