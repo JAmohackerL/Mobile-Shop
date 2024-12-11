@@ -62,7 +62,7 @@ const InstallmentPurchase = ({ onCalculateClick }) => {
         </div>
 
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center relative z-10 mr-10 top-7">
+        <div className="w-full md:w-1/2 flex justify-center relative z-10  top-7">
           <div className="absolute w-4/5 h-4/5 rounded-full bg-gradient-to-tr from-blue-300 to-green-400 blur-3xl opacity-40 -z-10"></div>
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
