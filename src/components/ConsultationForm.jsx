@@ -12,7 +12,7 @@ export default function InstallmentCalculator() {
   const [installmentAmount, setInstallmentAmount] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState(null);
 
-  // تابع محاسبه اقساط
+  // محاسبه اقساط
   const calculateInstallment = (e) => {
     e.preventDefault();
 

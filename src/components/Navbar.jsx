@@ -51,7 +51,7 @@ export default function Navbar() {
             <div className="flex items-center text-white font-medium space-x-3 rtl:space-x-reverse">
               <FaPhoneAlt className="text-white bg-green-700 p-2 rounded-full shadow-lg text-2xl" />
               <div className="text-left">
-                <p className="text-lg font-extrabold">021-91091100</p>
+                <p className="text-lg font-extrabold">021-82800003</p>
                 <p className="text-sm text-green-200 font-light">
                   مشاوره و پشتیبانی رایگان
                 </p>
