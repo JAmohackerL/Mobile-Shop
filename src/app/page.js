@@ -6,7 +6,6 @@ import InstallmentPurchase from "@/components/InstallmentCalculator";
 import PhoneCategory from "@/components/PhoneCategory";
 import LaptopCategory from "@/components/LaptopCategory";
 import Laptop360View from "@/components/Laptop360View.jsx";
-import ConsultationForm from "@/components/ConsultationForm.jsx";
 import BestSellers from "@/components/BestSellers.jsx";
 
 const services = [
@@ -59,14 +58,6 @@ export default function Home() {
         </section>
         <section className="mt-24 max-w-6xl mx-auto">
           <LaptopCategory />
-        </section>
-
-        {/* فرم مشاوره */}
-        <section className="mt-24 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg relative">
-          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xl font-bold px-4 py-2 rounded-full shadow-lg">
-            محاسبه اقساط
-          </div>
-          <ConsultationForm />
         </section>
       </div>
     </main>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { MdEdit } from "react-icons/md";
 import { BsSpeedometer } from "react-icons/bs";
@@ -51,30 +50,22 @@ const InstallmentPurchase = ({ onCalculateClick }) => {
               </li>
             ))}
           </ul>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-50 px-10 py-4 bg-green-600 text-white font-bold rounded-full shadow-xl hover:bg-green-700 transition-all duration-300"
-            onClick={onCalculateClick}
-          >
-            محاسبه اقساط
-          </motion.button>
         </div>
 
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center relative z-10  top-7">
-          <div className="absolute w-4/5 h-4/5 rounded-full bg-gradient-to-tr from-blue-300 to-green-400 blur-3xl opacity-40 -z-10"></div>
+        <div className="w-full md:w-1/2 flex justify-center relative z-10">
+          <div className="absolute w-[120%] h-[120%] rounded-full bg-gradient-to-tr from-blue-300 to-green-400 blur-3xl opacity-40 -z-10"></div>
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.1 }}
             className="relative"
           >
             <Image
               src={bank}
               alt="تصویر خرید اقساطی"
-              className="w-full h-full object-contain rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(34,197,94,0.5)] transition-shadow duration-500"
+              className="w-[120%] h-[120%] object-contain rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(34,197,94,0.5)] transition-shadow duration-500"
               priority
             />
           </motion.div>
@@ -84,25 +75,4 @@ const InstallmentPurchase = ({ onCalculateClick }) => {
   );
 };
 
-// App Component
-const App = () => {
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
-
-  const handleCalculateClick = () => {
-    setShowConsultationForm(true);
-  };
-
-  return (
-    <div>
-      {showConsultationForm ? (
-        <div>
-          <p className="text-center mt-10 text-xl text-gray-700">محاسبه اقساط در دسترس نیست.</p>
-        </div>
-      ) : (
-        <InstallmentPurchase onCalculateClick={handleCalculateClick} />
-      )}
-    </div>
-  );
-};
-
-export default App;
+export default InstallmentPurchase;

@@ -48,15 +48,18 @@ export default function Navbar() {
               </span>
             </div>
 
-            <div className="flex items-center text-white font-medium space-x-3 rtl:space-x-reverse">
-              <FaPhoneAlt className="text-white bg-green-700 p-2 rounded-full shadow-lg text-2xl" />
+            <a
+              href="tel:02182800003"
+              className="flex items-center text-white font-medium space-x-3 rtl:space-x-reverse"
+            >
+              <FaPhoneAlt className="text-white bg-green-700 p-3 rounded-full shadow-lg text-4xl transition-all duration-300 transform active:scale-90 active:shadow-none hover:bg-green-800 focus:ring-4 focus:ring-green-300 focus:ring-opacity-50" />
               <div className="text-left">
-                <p className="text-lg font-extrabold">021-82800003</p>
-                <p className="text-sm text-green-200 font-light">
-                  مشاوره و پشتیبانی رایگان
+                <p className="text-lx md:text-2xl font-extrabold">021-82800003</p>
+                <p className="text-sm md:text-base text-green-200 font-light">
+                  برای تماس کلیک کنید
                 </p>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Desktop Menu */}
