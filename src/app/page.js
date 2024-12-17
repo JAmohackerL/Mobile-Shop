@@ -2,6 +2,7 @@ import { MdSecurity, MdSupportAgent } from "react-icons/md";
 import { TbTruckReturn } from "react-icons/tb";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import ServiceIcon from "@/components/ServiceIcon";
+import LoanRequest from "@/components/LoanRequest";
 import InstallmentPurchase from "@/components/InstallmentCalculator";
 import PhoneCategory from "@/components/PhoneCategory";
 import LaptopCategory from "@/components/LaptopCategory";
@@ -43,8 +44,16 @@ export default function Home() {
         {/* خدمات فروشگاه */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 w-full max-w-6xl mx-auto mt-12">
           {services.map((service, index) => (
-            <ServiceIcon key={index} {...service} className="hover:scale-105 transition-transform duration-300" />
+            <ServiceIcon
+              key={index}
+              {...service}
+              className="hover:scale-105 transition-transform duration-300"
+            />
           ))}
+        </section>
+
+        <section className="mb-10 mt-20 ">
+          <LoanRequest />
         </section>
 
         {/* پرفروش‌ترین‌ها */}
