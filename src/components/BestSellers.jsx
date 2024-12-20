@@ -68,17 +68,17 @@ export default function BestSellers() {
 
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
-        <div className="bg-white rounded-lg p-6 max-w-sm w-full relative shadow-lg animate-fade-in">
+        <div className="bg-white rounded-lg p-4 max-w-sm w-full relative shadow-lg animate-fade-in">
           <button
             onClick={() => setShowPopup(false)}
             className="absolute top-2 left-2 text-gray-500 hover:text-green-500 transition"
           >
             <IoMdClose size={24} />
           </button>
-          <h3 className="text-xl font-bold text-center mb-4 text-green-600">
+          <h3 className="text-xl font-bold text-center mb-2 text-green-600">
             استعلام قیمت
           </h3>
-          <p className="text-center text-gray-700 mb-4">
+          <p className="text-center text-gray-700 mb-2">
             برای استعلام قیمت با شماره زیر تماس بگیرید:
           </p>
           <p className="text-center text-green-500 text-xl font-bold" dir="ltr">
@@ -90,21 +90,21 @@ export default function BestSellers() {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-green-50 to-blue-50 py-12 px-4">
-      <h2 className="text-3xl font-extrabold mb-8 text-center text-green-700">
+    <div className="w-full bg-gradient-to-b from-green-50 to-blue-50 py-8 px-4">
+      <h2 className="text-3xl font-extrabold mb-6 text-center text-green-700">
         پرفروش‌ترین‌ها
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {bestSellers.map((phone) => (
           <div
             key={phone.id}
-            className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform duration-300"
+            className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform duration-300"
           >
             <div
               className="cursor-pointer"
               onClick={() => setShowPopup(true)}
             >
-              <div className="relative w-full h-64 mb-4">
+              <div className="relative w-full h-56 mb-4">
                 <Image
                   src={phone.image}
                   alt={phone.name}

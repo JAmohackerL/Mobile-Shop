@@ -84,7 +84,7 @@ const Laptop360View = () => {
       />
 
       {/* Slider Hint */}
-      <div className="text-green-800 font-semibold text-sm md:text-base animate-pulse">
+      <div className="text-green-800 font-semibold text-sm md:text-base">
         برای چرخش لپ‌تاپ از اسلایدر استفاده کنید
       </div>
     </div>

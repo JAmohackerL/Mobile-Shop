@@ -28,8 +28,9 @@ export default function PhoneCategory() {
                   <Image
                     src={phone.image}
                     alt={`تصویر ${phone.title}`}
-                    fill
-                    className="object-contain p-4 transition-transform group-hover:scale-110"
+                    layout="fill"
+                    objectFit="contain"
+                    className="transition-transform group-hover:scale-110"
                     placeholder="blur"
                     blurDataURL="/path/to/placeholder.png"
                   />

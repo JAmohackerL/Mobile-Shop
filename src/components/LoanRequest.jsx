@@ -3,34 +3,25 @@
 import React, { useState } from "react";
 
 const ProductPriceCalculator = () => {
-  const [productType, setProductType] = useState("Type1"); // نوع کالا (نوع یک یا نوع دو)
+  const [productType, setProductType] = useState("Type1"); // نوع کالا
   const [productPrice, setProductPrice] = useState(10000000); // مبلغ کالا
-  const [finalPrice, setFinalPrice] = useState(productPrice); // مبلغ جدید (بعد از اعمال تخفیف یا هزینه‌های اضافی)
+  const [finalPrice, setFinalPrice] = useState(productPrice); // مبلغ نهایی
 
-  // تعیین تخفیف یا هزینه اضافی برای نوع کالا
+  // هزینه اضافی بر اساس نوع کالا
   const getAdditionalCost = (type) => {
-    switch (type) {
-      case "Type1":
-        return 500000; // هزینه اضافی برای نوع یک
-      case "Type2":
-        return 1000000; // هزینه اضافی برای نوع دو
-      default:
-        return 0;
-    }
+    return type === "Type1" ? 500000 : 1000000; // هزینه اضافی
   };
 
   const handleProductPriceChange = (e) => {
     const price = Number(e.target.value);
     setProductPrice(price);
-    const additionalCost = getAdditionalCost(productType);
-    setFinalPrice(price + additionalCost); // محاسبه مبلغ نهایی
+    setFinalPrice(price + getAdditionalCost(productType)); // محاسبه مبلغ نهایی
   };
 
   const handleProductTypeChange = (e) => {
     const type = e.target.value;
     setProductType(type);
-    const additionalCost = getAdditionalCost(type);
-    setFinalPrice(productPrice + additionalCost); // محاسبه مبلغ نهایی با توجه به نوع کالا
+    setFinalPrice(productPrice + getAdditionalCost(type)); // محاسبه مبلغ نهایی
   };
 
   return (
@@ -39,9 +30,8 @@ const ProductPriceCalculator = () => {
         محاسبه قیمت کالا
       </h2>
 
-      {/* بخش انتخاب نوع کالا */}
+      {/* انتخاب نوع کالا */}
       <div className="mb-6">
-        <h4 className="font-semibold mb-3 text-green-700">انتخاب نوع کالا</h4>
         <select
           value={productType}
           onChange={handleProductTypeChange}
@@ -52,9 +42,8 @@ const ProductPriceCalculator = () => {
         </select>
       </div>
 
-      {/* بخش وارد کردن مبلغ کالا */}
+      {/* وارد کردن مبلغ کالا */}
       <div className="mb-6">
-        <h4 className="font-semibold mb-3 text-green-700">مبلغ کالا</h4>
         <input
           type="number"
           min="1000000"
@@ -68,7 +57,7 @@ const ProductPriceCalculator = () => {
         </span>
       </div>
 
-      {/* بخش نمایش مبلغ نهایی */}
+      {/* نمایش مبلغ نهایی */}
       <div className="mb-6">
         <div className="flex justify-between items-center p-4 bg-green-50 border border-green-300 rounded-lg">
           <span className="text-green-600 font-semibold">مبلغ نهایی:</span>

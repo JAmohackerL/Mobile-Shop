@@ -17,7 +17,7 @@ const brands = [
 
 export default function LaptopCategory() {
   return (
-    <section className="py-16 px-6 bg-gradient-to-bl from-gray-100 via-white to-gray-200 rounded-3xl shadow-xl relative">
+    <section className="py-16 px-6 bg-gradient-to-bl from-gray-100 via-white to-gray-200 rounded-3xl shadow-xl relative overflow-hidden">
       {/* جلوه‌های تزئینی پس‌زمینه */}
       <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-300 to-purple-400 rounded-full opacity-20 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-60 h-60 bg-gradient-to-tl from-purple-300 to-indigo-400 rounded-full opacity-20 blur-3xl"></div>

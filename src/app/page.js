@@ -6,7 +6,6 @@ import LoanRequest from "@/components/LoanRequest";
 import InstallmentPurchase from "@/components/InstallmentCalculator";
 import PhoneCategory from "@/components/PhoneCategory";
 import LaptopCategory from "@/components/LaptopCategory";
-import Laptop360View from "@/components/Laptop360View.jsx";
 import BestSellers from "@/components/BestSellers.jsx";
 
 const services = [
@@ -37,12 +36,12 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="container mx-auto px-4 py-10">
         {/* خرید اقساطی */}
-        <section className="mb-16">
+        <section className="mb-8">
           <InstallmentPurchase />
         </section>
 
         {/* خدمات فروشگاه */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 w-full max-w-6xl mx-auto mt-12">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 w-full max-w-6xl mx-auto mt-8">
           {services.map((service, index) => (
             <ServiceIcon
               key={index}
@@ -52,20 +51,20 @@ export default function Home() {
           ))}
         </section>
 
-        <section className="mb-10 mt-20 ">
+        <section className="mt-10">
           <LoanRequest />
         </section>
 
         {/* پرفروش‌ترین‌ها */}
-        <section className="mt-24 max-w-6xl mx-auto">
+        <section className="max-w-6xl mx-auto mt-16">
           <BestSellers />
         </section>
 
         {/* دسته‌بندی‌ها */}
-        <section className="mt-24 max-w-6xl mx-auto">
+        <section className="max-w-6xl mx-auto mt-16">
           <PhoneCategory />
         </section>
-        <section className="mt-24 max-w-6xl mx-auto">
+        <section className="max-w-6xl mx-auto mt-16">
           <LaptopCategory />
         </section>
       </div>
